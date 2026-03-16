@@ -12,7 +12,7 @@ import com.hiwi.exim.utilities.RandomDataGenerator;
 public class AdminAddUser extends Base {
 
 	@Test
-	public void addGoodsExporter() {
+	public void addGoodsExporter() throws InterruptedException {
 		
 		driver.get(ConfigReader.getAdminSigninUrl());
 		AdminLoginPage login = new AdminLoginPage(driver);
@@ -36,7 +36,11 @@ public class AdminAddUser extends Base {
         String mobile = RandomDataGenerator.indianMobile();
         
         usersPage.addClientAdminUser(firstName, lastName, email, mobile);
+       // Thread.sleep(2000);
+       // driver.navigate().refresh();
+        //Thread.sleep(2000);
+       // usersPage.searchAddedUser(email);
+        System.out.println("User added");
 	}
 	
 }	
-	

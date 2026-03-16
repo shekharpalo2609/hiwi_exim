@@ -1,0 +1,17 @@
+com\hiwi\exim\pages\admin\AdminLoginPage.class
+com\hiwi\exim\pages\common\PersonalDetailsPage.class
+com\hiwi\exim\pages\admin\AdminUsersPage.class
+com\hiwi\exim\pages\admin\PartnerOnboardingPage.class
+com\hiwi\exim\pages\admin\AdminDashboardPage.class
+com\hiwi\exim\pages\common\BusinessDetailsPage.class
+com\hiwi\exim\pages\common\ReviewAndFinishPage.class
+com\hiwi\exim\pages\client\ClientDashboardPage.class
+com\hiwi\exim\tests\AdminAddUser.class
+com\hiwi\exim\base\Base.class
+com\hiwi\exim\pages\admin\ClientOnboardingPage.class
+com\hiwi\exim\utilities\ConfigReader.class
+com\hiwi\exim\pages\client\ClientLoginPage.class
+com\hiwi\exim\utilities\RandomDataGenerator.class
+com\hiwi\exim\tests\LoginTest.class
+com\hiwi\exim\pages\common\BankDetailsPage.class
+com\hiwi\exim\pages\common\KYCDetailsPage.class

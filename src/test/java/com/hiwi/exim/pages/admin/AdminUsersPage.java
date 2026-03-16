@@ -35,6 +35,10 @@ public class AdminUsersPage {
 	@FindBy(xpath =  "//button[normalize-space()='Save']")
 	WebElement saveButton;
 	
+	@FindBy(css = "input[placeholder='Search']")
+	WebElement searchUserTextField;
+	
+	
 	public void addClientAdminUser(String firstName, String lastName, String email, String mobile) {
 		
 		addUserButton.click();
@@ -47,6 +51,9 @@ public class AdminUsersPage {
 		saveButton.click();
 	}
 	
+	public void searchAddedUser(String email) {
+		searchUserTextField.sendKeys(email);
+	}
 	
 	 public AdminUsersPage(WebDriver driver) {
 	        this.driver = driver;

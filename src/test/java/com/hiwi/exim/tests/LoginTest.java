@@ -8,7 +8,7 @@ import com.hiwi.exim.utilities.ConfigReader;
 
 public class LoginTest extends Base {
 
-	@Test
+	@Test(enabled = true)
 	public void adminLogin() {
 
 		driver.get(ConfigReader.getAdminSigninUrl());
