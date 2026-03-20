@@ -3,12 +3,12 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.hiwi.exim.tests.AdminAddUser">
+      <class name="com.hiwi.exim.tests.ClientInternalOnboarding">
         <methods>
-          <include name="addGoodsExporter"/>
+          <include name="goodsExporterOnboarding"/>
           <include name="launchBrowser"/>
         </methods>
-      </class> <!-- com.hiwi.exim.tests.AdminAddUser -->
+      </class> <!-- com.hiwi.exim.tests.ClientInternalOnboarding -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -1,9 +1,13 @@
 package com.hiwi.exim.pages.admin;
 
+import java.time.Duration;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class AdminDashboardPage {
 
@@ -18,9 +22,17 @@ public class AdminDashboardPage {
 	@FindBy(xpath = "//span[normalize-space()='Client']")
 	WebElement clientOnboardingMenu;
 
-	public void navigateToUsersPage() {
+	public void navigateToUsersScreen() {
 
 		usersMenu.click();
+	}
+
+	public void navigateToClientOnboardingScreen() {
+
+		onboardingMenu.click();
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		wait.until(ExpectedConditions.visibilityOf(clientOnboardingMenu));
+		clientOnboardingMenu.click();
 	}
 
 	public AdminDashboardPage(WebDriver driver) {
