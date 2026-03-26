@@ -51,7 +51,7 @@ public class RandomDataGenerator {
 
 	public static String addressLine1() {
 		String[] names = { "C 2 Wagle Industrial Estate", "Electronic Complex", "Kota-Jaipur National Highway No.12",
-				"Bongaon Jhowdanga", "Bus Stand Rd", "Sector 17", "", "", "", "" };
+				"Bongaon Jhowdanga", "Bus Stand Rd", "Sector 17", "Mangal Complex", "Mumbai-Delhi highway", "Goa highway", "Naman Mid town" };
 		return names[RANDOM.nextInt(names.length)];
 	}
 
