@@ -5,7 +5,7 @@
     <classes>
       <class name="com.hiwi.exim.tests.ClientInternalOnboarding">
         <methods>
-          <include name="goodsExporterOnboarding"/>
+          <include name="goodsExporterOnboarding" invocation-numbers="0"/>
           <include name="launchBrowser"/>
         </methods>
       </class> <!-- com.hiwi.exim.tests.ClientInternalOnboarding -->

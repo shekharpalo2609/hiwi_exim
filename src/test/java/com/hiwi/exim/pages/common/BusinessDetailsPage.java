@@ -4,6 +4,7 @@ import java.io.File;
 import java.nio.file.Paths;
 import java.time.Duration;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -18,6 +19,7 @@ public class BusinessDetailsPage {
 
 	WebDriver driver;
 	String businessFilePath = "src/test/resources/testdata/files/business";
+	String filePath;
 
 	@FindBy(id = "businessBusinessLegalName")
 	WebElement businessLegalName;
@@ -31,30 +33,32 @@ public class BusinessDetailsPage {
 
 	@FindBy(xpath = "//*[@ng-reflect-value='Merchant']")
 	WebElement merchant;
-
-	public void selectMerchant() {
+	
+	public void selectBusinessType(String type) {
 		businessType.click();
-		merchant.click();
+		WebElement option = driver.findElement(By.xpath("//*[@ng-reflect-value='" + type + "']"));
+		option.click();
 	}
-
+	
 	@FindBy(xpath = "//app-select-dropdown[@ng-reflect-label='Company Type']")
 	WebElement companyType;
-
+	
 	@FindBy(xpath = "//SPAN[normalize-space(.)='Sole Proprietor']")
 	WebElement soleProprietor;
-
-	public void selectSoleProprietor() {
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+	
+	public void selectCompanyType(String type) {
 		try {
 			Thread.sleep(5000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		wait.until(ExpectedConditions.elementToBeClickable(companyType)).click();
 
-		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", soleProprietor);
-		soleProprietor.click();
-
+		WebElement option = wait.until(
+				ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[normalize-space(.)='" + type + "']")));
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", option);
+		option.click();
 	}
 
 	@FindBy(id = "businessAddress1")
@@ -63,13 +67,29 @@ public class BusinessDetailsPage {
 	@FindBy(id = "businessAddress2")
 	WebElement addressLine2;
 
+	@FindBy(xpath = "//*[@id='businessState']")
+	WebElement stateTextField;
+	
+	@FindBy(css = "input[placeholder='Search state']")
+	WebElement searchState;
+	
+	@FindBy(css = "input[id='businessCity']")
+	WebElement city;
+	
+	public void enterCity(String city) {
+		this.city.sendKeys(city);
+	}
+	
+	@FindBy(css = "input[id='businessPinCode']")
+	WebElement zipCode;
+	
 	public void addressDetails(String addressLine1, String addressLine2, String city, String zip) {
-		
+
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		wait.until(ExpectedConditions.elementToBeClickable(this.addressLine1));
 		this.addressLine1.sendKeys(addressLine1);
 		this.addressLine2.sendKeys(addressLine2);
-		
+
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].scrollIntoView(true);", stateTextField);
 
@@ -81,29 +101,11 @@ public class BusinessDetailsPage {
 		waitStateSearch.until(ExpectedConditions.elementToBeClickable(searchState));
 		searchState.sendKeys("Maha");
 		searchState.sendKeys(Keys.ENTER);
-		
+
 		this.city.sendKeys(city);
-		
+
 		zipCode.sendKeys(zip);
 	}
-
-
-	@FindBy(xpath = "//*[@id='businessState']")
-	WebElement stateTextField;
-
-	@FindBy(css = "input[placeholder='Search state']")
-	WebElement searchState;
-
-	
-	@FindBy(css = "input[id='businessCity']")
-	WebElement city;
-
-	public void enterCity(String city) {
-		this.city.sendKeys(city);
-	}
-
-	@FindBy(css = "input[id='businessPinCode']")
-	WebElement zipCode;
 
 	public void enterZipcode(String zip) {
 		zipCode.sendKeys(zip);
@@ -121,21 +123,10 @@ public class BusinessDetailsPage {
 
 	public void selectIndustry() {
 		industry.click();
-		try {
-			Thread.sleep(1000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
 		Actions actions = new Actions(driver);
-		actions.sendKeys(Keys.ENTER).perform();
-		actions.sendKeys(Keys.ARROW_DOWN).perform();
-		actions.sendKeys(Keys.ENTER).perform();
-		actions.sendKeys(Keys.ARROW_DOWN).perform();
-		actions.sendKeys(Keys.ENTER).perform();
-		actions.sendKeys(Keys.ARROW_DOWN).perform();
-		actions.sendKeys(Keys.ENTER).perform();
-		actions.sendKeys(Keys.ARROW_DOWN).perform();
-		actions.sendKeys(Keys.ENTER).perform();
+		for (int i = 0; i < 5; i++) {
+			actions.sendKeys(Keys.ENTER).sendKeys(Keys.ARROW_DOWN).perform();
+		}
 		actions.sendKeys(Keys.TAB).perform();
 	}
 
@@ -165,52 +156,46 @@ public class BusinessDetailsPage {
 	@FindBy(xpath = "//*[@id='gstin-upload-btn']/button/../input")
 	WebElement uploadGST;
 
-	public void uploadGST() {
-		String filePath = Paths.get(businessFilePath + "/GST_certificate.pdf").toAbsolutePath()
-				.toString();
-		File file = new File(filePath);
-		if (!file.exists()) {
-			throw new RuntimeException("File not found: " + filePath);
-		}
-		uploadGST.sendKeys(filePath);
-	}
-
 	@FindBy(xpath = "//*[@id='iec-upload-btn']/button/../input")
 	WebElement uploadIEC;
-
-	public void uploadIEC() {
-		String filePath = Paths.get(businessFilePath + "/IEC_certificate.pdf").toAbsolutePath()
-				.toString();
-		File file = new File(filePath);
-		if (!file.exists()) {
-			throw new RuntimeException("File not found: " + filePath);
-		}
-		uploadIEC.sendKeys(filePath);
-	}
 
 	@FindBy(xpath = "//*[@id='efira-upload-btn']/button/../input")
 	WebElement uploadEfira;
 
-	public void uploadEFIRA() {
-		String filePath = Paths.get(businessFilePath + "/eFira.pdf").toAbsolutePath().toString();
-		File file = new File(filePath);
-		if (!file.exists()) {
-			throw new RuntimeException("File not found: " + filePath);
-		}
-		uploadEfira.sendKeys(filePath);
-	}
-
 	@FindBy(xpath = "//*[@id='inv-upload-btn']/button/../input")
 	WebElement uploadInvoice;
-
-	public void uploadInvoice() {
-		String filePath = Paths.get(businessFilePath + "/Invoice_Template.pdf").toAbsolutePath()
-				.toString();
+	
+	private void uploadBusinessFile(WebElement element, String fileName) {
+		String filePath = Paths.get(businessFilePath, fileName).toAbsolutePath().toString();
 		File file = new File(filePath);
 		if (!file.exists()) {
 			throw new RuntimeException("File not found: " + filePath);
 		}
-		uploadInvoice.sendKeys(filePath);
+		element.sendKeys(filePath);
+	}
+
+	public void uploadGST() {
+		uploadBusinessFile(uploadGST, "GST_certificate.pdf");
+	}
+
+	public void uploadIEC() {
+		uploadBusinessFile(uploadIEC, "IEC_certificate.pdf");
+	}
+
+	public void uploadEFIRA() {
+		uploadBusinessFile(uploadEfira, "eFira.pdf");
+	}
+
+	public void uploadInvoice() {
+		uploadBusinessFile(uploadInvoice, "Invoice_Template.pdf");
+	}
+
+
+	public void uploadBusinessFilesForSoleProprietor() {
+		uploadGST();
+		uploadIEC();
+		uploadEFIRA();
+		uploadInvoice();
 	}
 
 	@FindBy(xpath = "//button[@id='business-next-button']")
