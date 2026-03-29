@@ -13,7 +13,7 @@ public class AdminDashboardPage {
 
 	WebDriver driver;
 
-	@FindBy(xpath = "//button/span[normalize-space()='Users']")
+	@FindBy(xpath = "//span[normalize-space()='Users']")
 	WebElement usersMenu;
 
 	@FindBy(xpath = "//span[normalize-space()='Onboarding']")
@@ -23,12 +23,17 @@ public class AdminDashboardPage {
 	WebElement clientOnboardingMenu;
 
 	public void navigateToUsersScreen() {
-
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(100));
+		wait.until(ExpectedConditions.elementToBeClickable(usersMenu));
 		usersMenu.click();
 	}
 
 	public void navigateToClientOnboardingScreen() {
-
 		onboardingMenu.click();
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		wait.until(ExpectedConditions.visibilityOf(clientOnboardingMenu));

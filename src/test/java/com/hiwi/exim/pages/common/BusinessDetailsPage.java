@@ -33,19 +33,19 @@ public class BusinessDetailsPage {
 
 	@FindBy(xpath = "//*[@ng-reflect-value='Merchant']")
 	WebElement merchant;
-	
+
 	public void selectBusinessType(String type) {
 		businessType.click();
 		WebElement option = driver.findElement(By.xpath("//*[@ng-reflect-value='" + type + "']"));
 		option.click();
 	}
-	
+
 	@FindBy(xpath = "//app-select-dropdown[@ng-reflect-label='Company Type']")
 	WebElement companyType;
-	
+
 	@FindBy(xpath = "//SPAN[normalize-space(.)='Sole Proprietor']")
 	WebElement soleProprietor;
-	
+
 	public void selectCompanyType(String type) {
 		try {
 			Thread.sleep(5000);
@@ -69,20 +69,20 @@ public class BusinessDetailsPage {
 
 	@FindBy(xpath = "//*[@id='businessState']")
 	WebElement stateTextField;
-	
+
 	@FindBy(css = "input[placeholder='Search state']")
 	WebElement searchState;
-	
+
 	@FindBy(css = "input[id='businessCity']")
 	WebElement city;
-	
+
 	public void enterCity(String city) {
 		this.city.sendKeys(city);
 	}
-	
+
 	@FindBy(css = "input[id='businessPinCode']")
 	WebElement zipCode;
-	
+
 	public void addressDetails(String addressLine1, String addressLine2, String city, String zip) {
 
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
@@ -90,10 +90,13 @@ public class BusinessDetailsPage {
 		this.addressLine1.sendKeys(addressLine1);
 		this.addressLine2.sendKeys(addressLine2);
 
+		WebDriverWait waitStateView = new WebDriverWait(driver, Duration.ofSeconds(10));
+		waitStateView.until(ExpectedConditions.visibilityOf(stateTextField));
+		
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].scrollIntoView(true);", stateTextField);
 
-		WebDriverWait waitState = new WebDriverWait(driver, Duration.ofSeconds(10));
+		WebDriverWait waitState = new WebDriverWait(driver, Duration.ofSeconds(30));
 		waitState.until(ExpectedConditions.elementToBeClickable(stateTextField));
 		stateTextField.click();
 
@@ -122,6 +125,9 @@ public class BusinessDetailsPage {
 	WebElement industry;
 
 	public void selectIndustry() {
+	//	((JavascriptExecutor)driver).executeScript(null, null)
+		WebDriverWait wait =new WebDriverWait(driver, Duration.ofSeconds(100));
+		wait.until(ExpectedConditions.visibilityOf(businessDescription));
 		industry.click();
 		Actions actions = new Actions(driver);
 		for (int i = 0; i < 5; i++) {
@@ -164,7 +170,7 @@ public class BusinessDetailsPage {
 
 	@FindBy(xpath = "//*[@id='inv-upload-btn']/button/../input")
 	WebElement uploadInvoice;
-	
+
 	private void uploadBusinessFile(WebElement element, String fileName) {
 		String filePath = Paths.get(businessFilePath, fileName).toAbsolutePath().toString();
 		File file = new File(filePath);
@@ -190,12 +196,17 @@ public class BusinessDetailsPage {
 		uploadBusinessFile(uploadInvoice, "Invoice_Template.pdf");
 	}
 
-
 	public void uploadBusinessFilesForSoleProprietor() {
 		uploadGST();
 		uploadIEC();
 		uploadEFIRA();
 		uploadInvoice();
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	@FindBy(xpath = "//button[@id='business-next-button']")

@@ -47,6 +47,8 @@ public class AdminUsersPage {
 	public void addClientAdminUser(String firstName, String lastName, String email, String mobile) {
 
 		addUserButton.click();
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		wait.until(ExpectedConditions.elementToBeClickable(this.firstName));
 		this.firstName.sendKeys(firstName);
 		this.lastName.sendKeys(lastName);
 		this.email.sendKeys(email);

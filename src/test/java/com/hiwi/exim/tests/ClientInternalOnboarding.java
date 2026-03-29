@@ -8,6 +8,7 @@ import com.hiwi.exim.base.Base;
 import com.hiwi.exim.pages.admin.AdminDashboardPage;
 import com.hiwi.exim.pages.admin.AdminUsersPage;
 import com.hiwi.exim.pages.admin.ClientOnboardingPage;
+import com.hiwi.exim.pages.common.BankDetailsPage;
 import com.hiwi.exim.pages.common.BusinessDetailsPage;
 import com.hiwi.exim.pages.common.KYCDetailsPage;
 import com.hiwi.exim.pages.common.PersonalDetailsPage;
@@ -74,6 +75,9 @@ public class ClientInternalOnboarding extends Base {
 		
 		KYCDetailsPage kycPage = new KYCDetailsPage(driver);
 		kycPage.saveKYCDetailsSoleProprietor();
+
+		BankDetailsPage bankPage = new BankDetailsPage(driver);
+		bankPage.saveBankDetails();
 	}
 
 }

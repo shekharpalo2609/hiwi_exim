@@ -27,7 +27,7 @@ public class RandomDataGenerator {
 	}
 
 	public static String email(String firstName) {
-		int randomNumber = 1000 + RANDOM.nextInt(9000);
+		int randomNumber = 10000 + RANDOM.nextInt(90000);
 		return firstName.toLowerCase() + randomNumber + "@automation.com";
 	}
 
