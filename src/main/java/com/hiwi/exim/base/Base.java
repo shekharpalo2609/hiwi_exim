@@ -1,6 +1,7 @@
 package com.hiwi.exim.base;
 
-import java.time.Duration;
+import java.time.Duration
+;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -8,7 +9,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.BeforeMethod;
 
 import com.hiwi.exim.pages.admin.AdminLoginPage;
-import com.hiwi.exim.utilities.ConfigReader;
+import com.hiwi.exim.utils.ConfigReader;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 

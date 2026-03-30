@@ -4,7 +4,7 @@ import org.testng.annotations.Test;
 
 import com.hiwi.exim.base.Base;
 import com.hiwi.exim.pages.admin.AdminLoginPage;
-import com.hiwi.exim.utilities.ConfigReader;
+import com.hiwi.exim.utils.ConfigReader;
 
 public class LoginTest extends Base {
 

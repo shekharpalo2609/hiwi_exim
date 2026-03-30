@@ -1,4 +1,4 @@
-package com.hiwi.exim.utilities;
+package com.hiwi.exim.utils;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;

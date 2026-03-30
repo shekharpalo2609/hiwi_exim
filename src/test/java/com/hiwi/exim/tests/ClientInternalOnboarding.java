@@ -13,8 +13,8 @@ import com.hiwi.exim.pages.common.BusinessDetailsPage;
 import com.hiwi.exim.pages.common.KYCDetailsPage;
 import com.hiwi.exim.pages.common.PersonalDetailsPage;
 import com.hiwi.exim.pages.common.ReviewAndFinishPage;
-import com.hiwi.exim.utilities.AdminFlows;
-import com.hiwi.exim.utilities.RandomDataGenerator;
+import com.hiwi.exim.utils.AdminFlows;
+import com.hiwi.exim.utils.RandomDataGenerator;
 
 public class ClientInternalOnboarding extends Base {
 

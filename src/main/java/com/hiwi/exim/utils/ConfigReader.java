@@ -1,4 +1,4 @@
-package com.hiwi.exim.utilities;
+package com.hiwi.exim.utils;
 
 import java.io.IOException;
 import java.io.InputStream;
