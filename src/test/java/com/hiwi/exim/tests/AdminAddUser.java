@@ -2,11 +2,12 @@ package com.hiwi.exim.tests;
 
 import org.testng.annotations.Test;
 
+import com.hiwi.exim.base.Base;
 import com.hiwi.exim.pages.admin.AdminDashboardPage;
 import com.hiwi.exim.pages.admin.AdminUsersPage;
 import com.hiwi.exim.utils.AdminFlows;
 
-public class AdminAddUser extends com.hiwi.exim.base.Base {
+public class AdminAddUser extends Base {
 
 	@Test
 	public void addGoodsExporter() throws InterruptedException {
