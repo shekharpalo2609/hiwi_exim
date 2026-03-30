@@ -1,7 +1,9 @@
 package com.hiwi.exim.pages.common;
 
+import java.nio.file.Paths;
 import java.time.Duration;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -14,6 +16,9 @@ public class BankDetailsPage {
 	WebDriver driver;
 	String bankFilePath = "src/test/resources/testdata/files/bank";
 	
+	@FindBy(xpath = "//label[normalize-space() = 'Bank Account']")
+	WebElement bankAccountRadioButton;
+	
 	@FindBy(xpath = "//*[@id='cheque-upload-btn']/button/../input")
 	WebElement uploadChecque;
 	
@@ -21,8 +26,12 @@ public class BankDetailsPage {
 	WebElement nextButton;
 	
 	public void saveBankDetails() {
-		uploadChecque.sendKeys(bankFilePath+"cheque ICICI.png");
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+		wait.until(ExpectedConditions.elementToBeClickable(bankAccountRadioButton)).click();;
+		
+		String absolutePath = Paths.get(bankFilePath, "cheque_ICICI.png").toAbsolutePath().toString();
+		uploadChecque.sendKeys(absolutePath);
+		((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView(true);", nextButton);
 		wait.until(ExpectedConditions.elementToBeClickable(nextButton)).click();
 	}
 	

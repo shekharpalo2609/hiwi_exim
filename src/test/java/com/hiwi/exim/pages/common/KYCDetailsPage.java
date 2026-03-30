@@ -2,12 +2,15 @@ package com.hiwi.exim.pages.common;
 
 import java.io.File;
 import java.nio.file.Paths;
+import java.time.Duration;
 
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class KYCDetailsPage {
 
@@ -64,7 +67,13 @@ public class KYCDetailsPage {
 
 		addOwnerButton.click();
 		uploadOwnerPAN();
-
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(0));
+		wait.until(ExpectedConditions.visibilityOf(proofTypeDropdown));
 		proofTypeDropdown.click();
 		passportOption.click();
 		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block: 'center'});", nextButton);
