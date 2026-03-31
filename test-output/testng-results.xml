@@ -2,32 +2,20 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-03-30T17:34:50 IST" name="Default suite" finished-at="2026-03-30T17:36:46 IST" duration-ms="116186">
+  <suite started-at="2026-03-31T12:32:23 IST" name="Default suite" finished-at="2026-03-31T12:32:37 IST" duration-ms="14387">
     <groups>
     </groups>
-    <test started-at="2026-03-30T17:34:50 IST" name="Default test" finished-at="2026-03-30T17:36:46 IST" duration-ms="116186">
-      <class name="com.hiwi.exim.tests.ClientInternalOnboarding">
-        <test-method is-config="true" signature="launchBrowser()[pri:0, instance:com.hiwi.exim.tests.ClientInternalOnboarding@7e6f74c]" started-at="2026-03-30T17:34:50 IST" name="launchBrowser" finished-at="2026-03-30T17:35:01 IST" duration-ms="10904" status="PASS">
+    <test started-at="2026-03-31T12:32:23 IST" name="Default test" finished-at="2026-03-31T12:32:37 IST" duration-ms="14387">
+      <class name="com.hiwi.exim.tests.LoginTest">
+        <test-method is-config="true" signature="launchBrowser()[pri:0, instance:com.hiwi.exim.tests.LoginTest@54d9d12d]" started-at="2026-03-31T12:32:23 IST" name="launchBrowser" finished-at="2026-03-31T12:32:35 IST" duration-ms="11607" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- launchBrowser -->
-        <test-method signature="goodsExporterOnboarding(java.lang.String,java.lang.String)[pri:0, instance:com.hiwi.exim.tests.ClientInternalOnboarding@7e6f74c]" started-at="2026-03-30T17:35:01 IST" name="goodsExporterOnboarding" data-provider="onboardingTypes" finished-at="2026-03-30T17:36:46 IST" duration-ms="105135" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[Merchant]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[Sole Proprietor]]>
-              </value>
-            </param>
-          </params>
+        <test-method signature="adminLogin()[pri:0, instance:com.hiwi.exim.tests.LoginTest@54d9d12d]" started-at="2026-03-31T12:32:35 IST" name="adminLogin" finished-at="2026-03-31T12:32:37 IST" duration-ms="2266" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- goodsExporterOnboarding -->
-      </class> <!-- com.hiwi.exim.tests.ClientInternalOnboarding -->
+        </test-method> <!-- adminLogin -->
+      </class> <!-- com.hiwi.exim.tests.LoginTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

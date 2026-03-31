@@ -2,6 +2,7 @@ package com.hiwi.exim.tests;
 
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import com.hiwi.exim.base.Base;
@@ -16,6 +17,7 @@ import com.hiwi.exim.pages.common.ReviewAndFinishPage;
 import com.hiwi.exim.utils.AdminFlows;
 import com.hiwi.exim.utils.RandomDataGenerator;
 
+@Listeners(com.hiwi.exim.listeners.TestListener.class)
 public class ClientInternalOnboarding extends Base {
 
 	@DataProvider(name = "onboardingTypes")

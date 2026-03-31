@@ -10,6 +10,7 @@ import org.testng.annotations.BeforeMethod;
 
 import com.hiwi.exim.pages.admin.AdminLoginPage;
 import com.hiwi.exim.utils.ConfigReader;
+import com.hiwi.exim.utils.DriverManager;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -39,6 +40,8 @@ public class Base {
 		driver = new ChromeDriver(options);
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		
+		DriverManager.setDriver(driver);
 
 		// Perform login once browser is launched
 		driver.get(ConfigReader.getAdminSigninUrl());
@@ -49,8 +52,9 @@ public class Base {
 
 	// @AfterMethod
 	public void closeBrowser() {
-		if (driver != null) {
-			driver.quit();
+		if (DriverManager.getDriver() != null) {
+			DriverManager.getDriver().quit();
+			DriverManager.unload();
 		}
 	}
 }

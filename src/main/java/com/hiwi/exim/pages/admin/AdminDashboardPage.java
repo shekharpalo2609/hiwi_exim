@@ -28,7 +28,7 @@ public class AdminDashboardPage {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(100));
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		wait.until(ExpectedConditions.elementToBeClickable(usersMenu));
 		usersMenu.click();
 	}
