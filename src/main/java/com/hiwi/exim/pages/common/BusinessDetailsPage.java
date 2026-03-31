@@ -125,7 +125,6 @@ public class BusinessDetailsPage {
 	WebElement industry;
 
 	public void selectIndustry() {
-	//	((JavascriptExecutor)driver).executeScript(null, null)
 		WebDriverWait wait =new WebDriverWait(driver, Duration.ofSeconds(100));
 		wait.until(ExpectedConditions.visibilityOf(businessDescription));
 		industry.click();

@@ -24,9 +24,19 @@ public class ClientOnboardingPage {
 	@FindBy(xpath = "(//mat-icon[normalize-space()='more_vert'])[1]")
 	WebElement actionsToggle;
 	
-	
 	@FindBy(xpath = "//*[@class='mat-mdc-menu-item-text' and text()='Onboarding']")
 	WebElement onboardingAction;
+	
+	@FindBy(xpath = "//*[@ng-reflect-label='Client Status']//*[@role='combobox']")
+	WebElement clientStatusDropdown;
+	
+	@FindBy(xpath = "//*[@ng-reflect-value='Approval_In_Progress']")
+	WebElement approvalInProgress;
+	
+	@FindBy(xpath = "//*[text()='View/Edit']")
+	WebElement ViewEditAction;
+	
+	
 	
 
 	public void searchClientEmail(String email) {
@@ -54,6 +64,18 @@ public class ClientOnboardingPage {
 		actionsToggle.click();
 		onboardingAction.click();
 	}
+	
+	public void searchWithApprovalInProgress() {
+		clientStatusDropdown.click();
+		approvalInProgress.click();
+	}
+	
+	public void feesSetUp() {
+		actionsToggle.click();
+		ViewEditAction.click();
+		
+	}
+	
 
 	public ClientOnboardingPage(WebDriver driver) {
 		this.driver = driver;

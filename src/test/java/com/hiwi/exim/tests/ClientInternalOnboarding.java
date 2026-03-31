@@ -9,6 +9,7 @@ import com.hiwi.exim.base.Base;
 import com.hiwi.exim.pages.admin.AdminDashboardPage;
 import com.hiwi.exim.pages.admin.AdminUsersPage;
 import com.hiwi.exim.pages.admin.ClientOnboardingPage;
+import com.hiwi.exim.pages.admin.FeesSetupPage;
 import com.hiwi.exim.pages.common.BankDetailsPage;
 import com.hiwi.exim.pages.common.BusinessDetailsPage;
 import com.hiwi.exim.pages.common.KYCDetailsPage;
@@ -84,6 +85,14 @@ public class ClientInternalOnboarding extends Base {
 		
 		ReviewAndFinishPage finishPage = new ReviewAndFinishPage(driver);
 		finishPage.saveReviewAndFinish();
+		
+		onboardingPage.searchClientEmail(generatedEmail);
+		onboardingPage.searchWithApprovalInProgress();
+		onboardingPage.feesSetUp();
+		
+		FeesSetupPage feesPage = new FeesSetupPage(driver);
+		feesPage.addFees();
+		
 	}
 
 }
