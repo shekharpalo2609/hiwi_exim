@@ -2,16 +2,16 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-03-31T18:48:58 IST" name="Default suite" finished-at="2026-03-31T18:51:01 IST" duration-ms="123181">
+  <suite started-at="2026-04-01T18:42:07 IST" name="Default suite" finished-at="2026-04-01T18:44:52 IST" duration-ms="165427">
     <groups>
     </groups>
-    <test started-at="2026-03-31T18:48:58 IST" name="Default test" finished-at="2026-03-31T18:51:01 IST" duration-ms="123181">
+    <test started-at="2026-04-01T18:42:07 IST" name="Default test" finished-at="2026-04-01T18:44:52 IST" duration-ms="165427">
       <class name="com.hiwi.exim.tests.ClientInternalOnboarding">
-        <test-method is-config="true" signature="launchBrowser()[pri:0, instance:com.hiwi.exim.tests.ClientInternalOnboarding@1f2586d6]" started-at="2026-03-31T18:48:58 IST" name="launchBrowser" finished-at="2026-03-31T18:49:06 IST" duration-ms="8222" status="PASS">
+        <test-method is-config="true" signature="launchBrowser()[pri:0, instance:com.hiwi.exim.tests.ClientInternalOnboarding@1f2586d6]" started-at="2026-04-01T18:42:07 IST" name="launchBrowser" finished-at="2026-04-01T18:42:18 IST" duration-ms="11268" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- launchBrowser -->
-        <test-method signature="goodsExporterOnboarding(java.lang.String,java.lang.String)[pri:0, instance:com.hiwi.exim.tests.ClientInternalOnboarding@1f2586d6]" started-at="2026-03-31T18:49:06 IST" name="goodsExporterOnboarding" data-provider="onboardingTypes" finished-at="2026-03-31T18:51:00 IST" duration-ms="114576" status="PASS">
+        <test-method signature="goodsExporterOnboarding(java.lang.String,java.lang.String)[pri:0, instance:com.hiwi.exim.tests.ClientInternalOnboarding@1f2586d6]" started-at="2026-04-01T18:42:18 IST" name="goodsExporterOnboarding" data-provider="onboardingTypes" finished-at="2026-04-01T18:44:52 IST" duration-ms="153406" status="PASS">
           <params>
             <param index="0">
               <value>

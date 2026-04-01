@@ -19,7 +19,7 @@ public class AdminDashboardPage {
 	@FindBy(xpath = "//span[normalize-space()='Onboarding']")
 	WebElement onboardingMenu;
 
-	@FindBy(xpath = "//span[normalize-space()='Client']")
+	@FindBy(xpath = "//span[normalize-space()='Internal']")
 	WebElement clientOnboardingMenu;
 
 	public void navigateToUsersScreen() {
