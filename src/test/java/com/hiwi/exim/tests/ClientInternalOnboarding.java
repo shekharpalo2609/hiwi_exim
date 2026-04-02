@@ -10,6 +10,7 @@ import com.hiwi.exim.pages.admin.AdminDashboardPage;
 import com.hiwi.exim.pages.admin.AdminUsersPage;
 import com.hiwi.exim.pages.admin.ClientOnboardingPage;
 import com.hiwi.exim.pages.admin.FeesSetupPage;
+import com.hiwi.exim.pages.admin.VerificationApprovalPage;
 import com.hiwi.exim.pages.common.BankDetailsPage;
 import com.hiwi.exim.pages.common.BusinessDetailsPage;
 import com.hiwi.exim.pages.common.KYCDetailsPage;
@@ -92,6 +93,9 @@ public class ClientInternalOnboarding extends Base {
 		
 		FeesSetupPage feesPage = new FeesSetupPage(driver);
 		feesPage.addFees();
+		
+		VerificationApprovalPage verificationPage = new VerificationApprovalPage(driver);
+		verificationPage.settingApprovedStatusForGoodsExporter();
 		
 	}
 

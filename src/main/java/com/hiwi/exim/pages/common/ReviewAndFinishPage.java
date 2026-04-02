@@ -25,17 +25,16 @@ public class ReviewAndFinishPage {
 		}
 		
 		JavascriptExecutor js = (JavascriptExecutor) driver;
-		for (int i = 0; i < 5; i++) {
-			js.executeScript("window.scrollTo(0, document.body.scrollHeight);");
-			try {
-				Thread.sleep(2000);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
-		}
-
+		//for (int i = 0; i < 5; i++) {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-		wait.until(ExpectedConditions.visibilityOf(finishButton));
+		js.executeScript("window.scrollTo(0, document.body.scrollHeight);");
+		wait.until(ExpectedConditions.elementToBeClickable(finishButton));
+			/*
+			 * try { Thread.sleep(2000); } catch (InterruptedException e) {
+			 * e.printStackTrace(); }
+			 */
+		//}
+
 		finishButton.click();
 	}
 

@@ -2,16 +2,16 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-04-01T18:42:07 IST" name="Default suite" finished-at="2026-04-01T18:44:52 IST" duration-ms="165427">
+  <suite started-at="2026-04-02T17:50:28 IST" name="Default suite" finished-at="2026-04-02T17:53:34 IST" duration-ms="186280">
     <groups>
     </groups>
-    <test started-at="2026-04-01T18:42:07 IST" name="Default test" finished-at="2026-04-01T18:44:52 IST" duration-ms="165427">
+    <test started-at="2026-04-02T17:50:28 IST" name="Default test" finished-at="2026-04-02T17:53:34 IST" duration-ms="186280">
       <class name="com.hiwi.exim.tests.ClientInternalOnboarding">
-        <test-method is-config="true" signature="launchBrowser()[pri:0, instance:com.hiwi.exim.tests.ClientInternalOnboarding@1f2586d6]" started-at="2026-04-01T18:42:07 IST" name="launchBrowser" finished-at="2026-04-01T18:42:18 IST" duration-ms="11268" status="PASS">
+        <test-method is-config="true" signature="launchBrowser()[pri:0, instance:com.hiwi.exim.tests.ClientInternalOnboarding@1f2586d6]" started-at="2026-04-02T17:50:28 IST" name="launchBrowser" finished-at="2026-04-02T17:50:38 IST" duration-ms="10093" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- launchBrowser -->
-        <test-method signature="goodsExporterOnboarding(java.lang.String,java.lang.String)[pri:0, instance:com.hiwi.exim.tests.ClientInternalOnboarding@1f2586d6]" started-at="2026-04-01T18:42:18 IST" name="goodsExporterOnboarding" data-provider="onboardingTypes" finished-at="2026-04-01T18:44:52 IST" duration-ms="153406" status="PASS">
+        <test-method signature="goodsExporterOnboarding(java.lang.String,java.lang.String)[pri:0, instance:com.hiwi.exim.tests.ClientInternalOnboarding@1f2586d6]" started-at="2026-04-02T17:50:38 IST" name="goodsExporterOnboarding" data-provider="onboardingTypes" finished-at="2026-04-02T17:53:34 IST" duration-ms="175579" status="PASS">
           <params>
             <param index="0">
               <value>
