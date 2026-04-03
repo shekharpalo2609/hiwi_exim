@@ -21,6 +21,9 @@ public class AdminDashboardPage {
 
 	@FindBy(xpath = "//span[normalize-space()='Internal']")
 	WebElement clientOnboardingMenu;
+	
+	@FindBy(xpath = "//span[normalize-space()='Xflow']")
+	WebElement xflowOnboardingMenu;
 
 	public void navigateToUsersScreen() {
 		try {
@@ -38,6 +41,12 @@ public class AdminDashboardPage {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		wait.until(ExpectedConditions.visibilityOf(clientOnboardingMenu));
 		clientOnboardingMenu.click();
+	}
+	
+	public void navigateToXflowOnboardingScreen() {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		wait.until(ExpectedConditions.visibilityOf(xflowOnboardingMenu));
+		xflowOnboardingMenu.click();
 	}
 
 	public AdminDashboardPage(WebDriver driver) {

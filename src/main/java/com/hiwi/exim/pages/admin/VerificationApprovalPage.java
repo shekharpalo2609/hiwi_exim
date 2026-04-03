@@ -40,6 +40,9 @@ public class VerificationApprovalPage {
 
 	@FindBy(xpath = "//button[normalize-space()='Save']")
 	WebElement saveStatusButton;
+	
+	@FindBy(xpath = "(//*[normalize-space()='Back to Client Onboarding List'])[2]")
+	WebElement backToClientOnboardingListLabel;
 
 	public void settingApprovedStatusForGoodsExporter() {
 		verificationApprovalTab.click();
@@ -64,8 +67,10 @@ public class VerificationApprovalPage {
 
 		WebElement button = wait2.until(ExpectedConditions.elementToBeClickable(saveStatusButton));
 		button.click();
-
-
+		
+		wait2.until(ExpectedConditions.visibilityOf(backToClientOnboardingListLabel));
+		js.executeScript("window.scrollTo(0, 0);");
+		
 	}
 
 	public VerificationApprovalPage(WebDriver driver) {
