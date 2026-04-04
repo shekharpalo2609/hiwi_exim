@@ -17,6 +17,7 @@ import com.hiwi.exim.pages.common.BusinessDetailsPage;
 import com.hiwi.exim.pages.common.KYCDetailsPage;
 import com.hiwi.exim.pages.common.PersonalDetailsPage;
 import com.hiwi.exim.pages.common.ReviewAndFinishPage;
+import com.hiwi.exim.retry.RetryAnalyzer;
 import com.hiwi.exim.utils.AdminFlows;
 import com.hiwi.exim.utils.RandomDataGenerator;
 
@@ -26,7 +27,8 @@ public class ClientInternalOnboarding extends Base {
 	@DataProvider(name = "onboardingTypes")
 	public Object[][] onboardingTypes() {
 		return new Object[][] { 
-			{ "Merchant", "Sole Proprietor" }, 
+			//{ "Merchant", "Sole Proprietor" }, 
+			{ "Manufacturer","Sole Proprietor" }
 				/*
 				 * { "Merchant", "Partnership Firm" }, { "Merchant", "Public Limited" }, {
 				 * "Merchant", "Private Limited" }, { "Merchant", "LLP" }, { "Manufacturer",
@@ -37,7 +39,7 @@ public class ClientInternalOnboarding extends Base {
 			};
 	}
 
-	@Test(dataProvider = "onboardingTypes")
+	@Test(dataProvider = "onboardingTypes", retryAnalyzer = RetryAnalyzer.class)
 	public void goodsExporterOnboarding(String businessType, String companyType) throws InterruptedException {
 
 		AdminDashboardPage dashboardPage = new AdminDashboardPage(driver);

@@ -65,8 +65,9 @@ public class VerificationApprovalPage {
 		WebDriverWait wait2 = new WebDriverWait(driver, Duration.ofSeconds(10));
 		js.executeScript("window.scrollTo(0, document.body.scrollHeight);");
 
-		WebElement button = wait2.until(ExpectedConditions.elementToBeClickable(saveStatusButton));
-		button.click();
+		js.executeScript("arguments[0].scrollIntoView(true);", saveStatusButton);
+		wait2.until(ExpectedConditions.elementToBeClickable(saveStatusButton));
+		saveStatusButton.click();
 		
 		wait2.until(ExpectedConditions.visibilityOf(backToClientOnboardingListLabel));
 		js.executeScript("window.scrollTo(0, 0);");
