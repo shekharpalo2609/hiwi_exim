@@ -27,10 +27,11 @@ public class ClientOnboardingPage {
 	@FindBy(xpath = "//*[@class='mat-mdc-menu-item-text' and text()='Onboarding']")
 	WebElement onboardingAction;
 	
-	@FindBy(xpath = "//*[@ng-reflect-label='Client Status']//*[@role='combobox']")
+	//@FindBy(xpath = "//*[@ng-reflect-label='Client Status']//*[@role='combobox']")
+	@FindBy(xpath = "//label[normalize-space() = 'Client Status']")
 	WebElement clientStatusDropdown;
 	
-	@FindBy(xpath = "//*[@ng-reflect-value='Approval_In_Progress']")
+	@FindBy(xpath = "//span[normalize-space()= 'Approval In Progress']")
 	WebElement approvalInProgress;
 	
 	@FindBy(xpath = "//*[text()='View/Edit']")

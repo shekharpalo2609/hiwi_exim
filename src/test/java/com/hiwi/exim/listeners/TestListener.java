@@ -1,5 +1,6 @@
 package com.hiwi.exim.listeners;
 
+import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -13,6 +14,8 @@ import org.testng.ITestResult;
 
 import com.hiwi.exim.utils.DriverManager;
 
+import io.qameta.allure.Allure;
+
 public class TestListener implements ITestListener {
 
 	@Override
@@ -23,7 +26,7 @@ public class TestListener implements ITestListener {
 			File file = sc.getScreenshotAs(OutputType.FILE);
 			String testName = result.getName();
 			String timeStamp = new java.text.SimpleDateFormat("ddMMyyyy_HHmmss").format(new java.util.Date());
-			String destPath = "target/screenshots/failed/" + testName + " " + timeStamp + ".png";
+			String destPath = "target/screenshots/failed/" + testName + "_" + timeStamp + ".png";
 
 			try {
 				Files.createDirectories(Paths.get("target/screenshots/failed"));
@@ -32,6 +35,11 @@ public class TestListener implements ITestListener {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
+
+			// Attach screenshot to Allure report
+			byte[] screenshotBytes = sc.getScreenshotAs(OutputType.BYTES);
+
+			Allure.addAttachment("Failure Screenshot - " + testName, new ByteArrayInputStream(screenshotBytes));
 		}
 	}
 
@@ -43,7 +51,7 @@ public class TestListener implements ITestListener {
 			File file = sc.getScreenshotAs(OutputType.FILE);
 			String testName = result.getName();
 			String timeStamp = new java.text.SimpleDateFormat("ddMMyyyy_HHmmss").format(new java.util.Date());
-			String destPath = "target/screenshots/pass/" + testName + " " + timeStamp + ".png";
+			String destPath = "target/screenshots/pass/" + testName + "_" + timeStamp + ".png";
 
 			try {
 				Files.createDirectories(Paths.get("target/screenshots/pass"));
@@ -52,6 +60,10 @@ public class TestListener implements ITestListener {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
+			// Attach screenshot to Allure report 
+			byte[] screenshotBytes = sc.getScreenshotAs(OutputType.BYTES);
+
+			Allure.addAttachment("Failure Screenshot - " + testName, new ByteArrayInputStream(screenshotBytes));
 		}
 	}
 }

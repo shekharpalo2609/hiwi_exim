@@ -32,7 +32,8 @@ public class VerificationApprovalPage {
 	@FindBy(xpath = "(//div[@class='button-wrapper']/i)[2]")
 	WebElement verifiedGstIcon;
 
-	@FindBy(xpath = "//*[@ng-reflect-name='status']")
+	//@FindBy(xpath = "//*[@ng-reflect-name='status']")
+	@FindBy(xpath = "//label[normalize-space()='Status']")
 	WebElement statusDropdown;
 
 	@FindBy(xpath = "//*[@value='Approved']")

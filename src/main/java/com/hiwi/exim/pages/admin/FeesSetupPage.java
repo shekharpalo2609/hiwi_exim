@@ -32,10 +32,10 @@ public class FeesSetupPage {
 	@FindBy(xpath = "//mat-label[.='Destination Currency']")
 	WebElement destinationCurrencyDropdown;
 
-	@FindBy(xpath = "//input[@ng-reflect-name='fixed']")
+	@FindBy(xpath = "//input[@formcontrolname='fixed']")
 	WebElement fixed;
 
-	@FindBy(xpath = "//input[@ng-reflect-name='minimum']")
+	@FindBy(xpath = "//input[@formcontrolname='minimum']")
 	WebElement minimum;
 
 	@FindBy(xpath = "//button[normalize-space()='Save']")
@@ -44,7 +44,7 @@ public class FeesSetupPage {
 	@FindBy(xpath = "//label[normalize-space()='Payout FX']")
 	WebElement payoutFxRadioButton;
 
-	@FindBy(xpath = "//input[@ng-reflect-name='variable']")
+	@FindBy(xpath = "//input[@formcontrolname='variable']")
 	WebElement variable;
 
 	@FindBy(xpath = "//label[normalize-space()='Reference Rate']")

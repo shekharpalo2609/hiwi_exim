@@ -28,7 +28,8 @@ public class BusinessDetailsPage {
 		businessLegalName.sendKeys(businessName);
 	}
 
-	@FindBy(xpath = "//*[@ng-reflect-label='Business Type']")
+	//@FindBy(xpath = "//*[@ng-reflect-label='Business Type']")
+	@FindBy(xpath = "//*[@id='businessBusinessType']")
 	WebElement businessType;
 
 	@FindBy(xpath = "//*[@ng-reflect-value='Merchant']")
@@ -36,11 +37,11 @@ public class BusinessDetailsPage {
 
 	public void selectBusinessType(String type) {
 		businessType.click();
-		WebElement option = driver.findElement(By.xpath("//*[@ng-reflect-value='" + type + "']"));
+		WebElement option = driver.findElement(By.xpath("//span[normalize-space()='" + type + "']"));
 		option.click();
 	}
 
-	@FindBy(xpath = "//app-select-dropdown[@ng-reflect-label='Company Type']")
+	@FindBy(xpath = "//app-select-dropdown[@id='businessCompanyType']")
 	WebElement companyType;
 
 	@FindBy(xpath = "//SPAN[normalize-space(.)='Sole Proprietor']")

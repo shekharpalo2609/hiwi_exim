@@ -39,7 +39,7 @@ public class ClientInternalOnboarding extends Base {
 			};
 	}
 
-	@Test(dataProvider = "onboardingTypes", retryAnalyzer = RetryAnalyzer.class)
+	@Test(dataProvider = "onboardingTypes" , retryAnalyzer = RetryAnalyzer.class )
 	public void goodsExporterOnboarding(String businessType, String companyType) throws InterruptedException {
 
 		AdminDashboardPage dashboardPage = new AdminDashboardPage(driver);

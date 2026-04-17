@@ -31,7 +31,8 @@ public class AdminUsersPage {
 	@FindBy(xpath = "//mat-label[normalize-space()='Role']")
 	WebElement role;
 
-	@FindBy(xpath = "//mat-option[@ng-reflect-value='CAdmin']")
+	//@FindBy(xpath = "//mat-option[@ng-reflect-value='CAdmin']")
+	@FindBy(xpath = "//mat-option/span[normalize-space()='Client Back-office Admin']")
 	WebElement clientAdminRole;
 
 	@FindBy(xpath = "//button[normalize-space()='Save']")

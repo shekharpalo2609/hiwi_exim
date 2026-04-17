@@ -1,16 +1,22 @@
 package com.hiwi.exim.base;
 
+import java.io.IOException;
 import java.time.Duration
 ;
+
+import javax.mail.MessagingException;
+import javax.mail.internet.AddressException;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
 
 import com.hiwi.exim.pages.admin.AdminLoginPage;
 import com.hiwi.exim.utils.ConfigReader;
 import com.hiwi.exim.utils.DriverManager;
+import com.hiwi.exim.utils.EmailReportSender;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -56,5 +62,13 @@ public class Base {
 			DriverManager.getDriver().quit();
 			DriverManager.unload();
 		}
+	}
+	
+	//@AfterSuite
+	public void sendReport() throws AddressException, MessagingException, IOException {
+		
+		String reportPath = "test-output/emailable-report.html";
+		String managerEmail = "paloskrqa@gmail.com";
+		EmailReportSender.sendReport(reportPath, managerEmail);
 	}
 }
