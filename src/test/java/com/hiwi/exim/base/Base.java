@@ -10,7 +10,6 @@ import javax.mail.internet.AddressException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
 
 import com.hiwi.exim.pages.admin.AdminLoginPage;
